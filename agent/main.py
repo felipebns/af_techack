@@ -39,8 +39,9 @@ com o Juice Shop) e 'nmap_scan' (para reconhecimento de portas/serviços do \
 host do alvo).
 
 Regras de trabalho:
-- Proponha UMA ação por vez, chamando UMA ferramenta, sempre com um breve \
-raciocínio em texto explicando por que aquela ação ajuda a investigar o objetivo.
+- Proponha UMA ação por vez, chamando UMA ferramenta, precedida de um raciocínio \
+curto (2 a 3 frases, em português) explicando por que aquela ação ajuda a \
+investigar o objetivo.
 - Baseie cada nova ação nas evidências já obtidas. Não repita ações que já \
 deram resultado nem siga um roteiro fixo.
 - Um supervisor humano pode autorizar, modificar ou rejeitar sua proposta. \
@@ -89,7 +90,10 @@ def _prompt_decision() -> str:
 def _print_proposal(tool_name: str, args: dict, reasoning: str) -> None:
     print("\n" + "=" * 70)
     if reasoning:
-        print(f"Raciocínio do modelo:\n  {reasoning}")
+        # O modelo pode gerar um raciocínio longo; na tela mostramos um resumo.
+        # O texto completo continua registrado no log JSONL.
+        shown = reasoning if len(reasoning) <= 600 else reasoning[:600] + " […]"
+        print(f"Raciocínio do modelo:\n  {shown}")
     print("-" * 70)
     print(f"Ação proposta: {tool_name}")
     print("Parâmetros:")

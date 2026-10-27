@@ -1,0 +1,12 @@
+# Instância local do OWASP Juice Shop, usada exclusivamente como alvo dos testes.
+#
+# Subir:       docker compose up -d
+# Restaurar:   docker compose restart juice-shop   (volta a um estado conhecido)
+# Derrubar:    docker compose down
+services:
+  juice-shop:
+    image: bkimminich/juice-shop:v17.1.1
+    container_name: juice-shop
+    ports:
+      - "3000:3000"
+    restart: unless-stopped

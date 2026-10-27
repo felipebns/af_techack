@@ -1,0 +1,20 @@
+# Configuração do laboratório.
+# Ajuste estes valores quando levar o agente para a máquina real.
+
+# Modelo de linguagem local (Ollama).
+ollama:
+  host: "http://localhost:11434"   # endpoint do Ollama
+  model: "qwen3:4b"                # modelo quantizado utilizado
+  think: false                     # desliga o "thinking mode" do Qwen3 para respostas diretas
+
+# Alvo dos testes: a instância LOCAL do OWASP Juice Shop.
+# O agente só tem autorização para agir contra este host.
+target:
+  base_url: "http://localhost:3000"
+
+# Diretório onde os registros das execuções serão gravados.
+logging:
+  dir: "logs"
+
+# Limite de iterações do loop para evitar execuções infinitas.
+max_steps: 30

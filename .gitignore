@@ -1,0 +1,5 @@
+logs/
+__pycache__/
+*.pyc
+.venv/
+AF - Tecnologias Hackers 26-2.pdf

@@ -36,7 +36,6 @@ evidências já obtidas — não é uma sequência fixa de comandos.
 | `agent/config.py`    | Carrega `config.yaml` |
 | `config.yaml`        | **O que você ajusta na máquina real** (URL do alvo, host/modelo do Ollama) |
 | `docker-compose.yml` | Juice Shop local |
-| `docs/planejamento.md` | Template para o planejamento e o relatório das investigações |
 
 ## Pré-requisitos
 
